@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Genre index{% endblock %}
+
+{% block body %}
+    <h1>Genre</h1>
+
+    <table class="uk-table uk-table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for genre in genres %}
+            <tr>
+                <td>{{ genre.id }}</td>
+                <td>{{ genre.nom }}</td>
+                <td>
+                    <a class="uk-button uk-button-default" href="{{ path('genre_show', {'id': genre.id}) }}">show</a>
+                    <a class="uk-button uk-button-primary" href="{{ path('genre_edit', {'id': genre.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <center><a class="uk-button uk-button-secondary" href="{{ path('genre_new') }}">Create new</a></center>
+{% endblock %}
