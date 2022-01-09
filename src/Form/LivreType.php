@@ -6,19 +6,72 @@ use App\Entity\Livre;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class LivreType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('isbn')
-            ->add('titre')
-            ->add('nombre_pages')
-            ->add('date_de_parution')
-            ->add('note')
-            ->add('Auteurs')
-            ->add('genres')
+            ->add('isbn',null,[
+                'label'=>false,
+                'attr'=>[
+                    'class'=>'uk-input',
+                    "placeholder" => 'ISBN'
+
+                ]
+            ])
+            ->add('titre',null,[
+                'label'=>false,
+                'attr'=>[
+                    'class'=>'uk-input',
+                    "placeholder" => 'titre'
+
+                ]
+            ])
+            ->add('nombre_pages',null,[
+                'label'=>false,
+                'attr'=>[
+                    'class'=>'uk-input',
+                    'min' => 0,
+                    'max' => 9999,
+                    "placeholder" => 'Nombre de Page',
+                ]
+            ])
+            ->add('date_de_parution',null,[
+                'label'=>false,
+                'widget' => 'single_text',
+                'attr'=>[
+                    'class'=>'uk-input',
+                    
+                ]
+            ])
+            ->add('note',null,[
+                'label'=>false,
+                'attr'=>[
+                    'class'=>'uk-input',
+                    "placeholder" => 'Note'
+
+                ]
+            ])
+            ->add('Auteurs',ChoiceType::class,[
+                'label'=>false,
+                'choices'=>[
+                    
+                ],
+                'attr'=>[
+                    'class'=>'uk-input',
+                ]
+            ])
+            ->add('genres',ChoiceType::class,[
+                'label'=>false,
+                'choices'=>[
+                    
+                ],
+                'attr'=>[
+                    'class'=>'uk-input',
+                ]
+            ])
         ;
     }
 

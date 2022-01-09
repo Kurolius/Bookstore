@@ -35,8 +35,8 @@
     </table>
 
    <center> <a class="uk-button uk-button-secondary" href="{{ path('livre_index') }}">back to list</a>
-
-    <a class="uk-button uk-button-primary" href="{{ path('livre_edit', {'id': livre.id}) }}">edit</a> </center>
-
+    {% if app.user and app.user.roles[0] == 'ROLE_ADMIN' %}
+        <a class="uk-button uk-button-primary" href="{{ path('livre_edit', {'id': livre.id}) }}">edit</a> </center>
+    {% endif %}
     {{ include('livre/_delete_form.html.twig') }}
 {% endblock %}

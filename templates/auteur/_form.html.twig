@@ -1,4 +1,46 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <br>
+    <table style="margin-left: 39%;"s>
+    <tr>
+    <td> <label>Nom et prenom</label> </td>
+    <td> 
+        <div class='uk-width-1-2 uk-margin-bottom'>
+        {{ form_row(form.nom_prenom) }}
+        </div>
+    </td>
+    </tr>
+
+    <tr>
+    <td> <label>Sexe</label> </td>
+    <td> 
+        <div class='uk-width-1-2 uk-margin-bottom'>
+        {{ form_row(form.sexe) }}
+        </div>
+    </td>
+    </tr>
+
+    <tr>
+    <td> <label>Date de naissance</label> </td>
+    <td> 
+        <div class='uk-width-1-2 uk-margin-bottom'>
+        {{ form_row(form.date_de_naissance) }}
+        </div>
+    </td>
+    </tr>
+
+    <tr>
+    <td> <label>Nationalite</label> </td>
+    <td> 
+        <div class='uk-width-1-2 uk-margin-bottom'>
+        {{ form_row(form.nationalite) }}
+        </div>
+    </td>
+    </tr>
+
+    </table>
+    <br>
+    <center>
+        <a class="uk-button uk-button-secondary" href="{{ path('auteur_index') }}">back to list</a>
+        <button class="uk-button uk-button-primary">{{ button_label|default('Save') }}</button>
+    </center>
 {{ form_end(form) }}

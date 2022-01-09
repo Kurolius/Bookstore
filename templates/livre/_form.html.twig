@@ -1,4 +1,75 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <br>
+    <table style="margin-left: 36%;">
+    <tr>
+    <td> <label>ISBN &nbsp;</label> </td>
+    <td> 
+        <div class='uk-width-1-1 uk-margin-bottom'>
+        {{ form_row(form.isbn) }}
+        </div>
+    </td>
+    </tr>
+
+    <tr>
+    <td> <label>Titre &nbsp;</label> </td>
+    <td> 
+        <div class='uk-width-1-1 uk-margin-bottom'>
+        {{ form_row(form.titre) }}
+        </div>
+    </td>
+    </tr>
+
+    <tr>
+    <td> <label>Nombre de pages &nbsp;</label> </td>
+    <td> 
+        <div class='uk-width-1-1 uk-margin-bottom'>
+        {{ form_row(form.nombre_pages) }}
+        </div>
+    </td>
+    </tr>
+
+    <tr>
+    <td> <label>Date de parution &nbsp;</label> </td>
+    <td> 
+        <div class='uk-width-1-1 uk-margin-bottom'>
+        {{ form_row(form.date_de_parution) }}
+        </div>
+    </td>
+    </tr>
+
+    <tr>
+    <td> <label>Note &nbsp;</label> </td>
+    <td> 
+        <div class='uk-width-1-1 uk-margin-bottom'>
+        {{ form_row(form.note) }}
+        </div>
+    </td>
+    </tr>
+
+    <tr>
+    <td> <label>Auteur &nbsp;</label> </td>
+    <td> 
+        <div class='uk-width-1-1 uk-margin-bottom'>
+        {{ form_row(form.Auteurs) }}
+        </div>
+    </td>
+    </tr>
+
+    <tr>
+    <td> <label> Genre &nbsp;</label> </td>
+    <td> 
+        <div class='uk-width-1-1 uk-margin-bottom'>
+        {{ form_row(form.genres) }}
+        </div>
+    </td>
+    </tr>
+
+
+    </table>
+    <br>
+
+    <center>
+    <a class="uk-button uk-button-secondary" href="{{ path('livre_index') }}">back to list</a>
+    <button class="uk-button uk-button-primary">{{ button_label|default('Save') }}</button>
+    </center>
 {{ form_end(form) }}

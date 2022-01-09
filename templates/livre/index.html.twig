@@ -28,7 +28,9 @@
                 <td>{{ livre.note }}</td>
                 <td>
                     <a class="uk-button uk-button-default" href="{{ path('livre_show', {'id': livre.id}) }}">show</a>
-                    <a class="uk-button uk-button-primary" href="{{ path('livre_edit', {'id': livre.id}) }}">edit</a>
+                    {% if app.user and app.user.roles[0] == 'ROLE_USER' %}
+                        <a class="uk-button uk-button-primary" href="{{ path('livre_edit', {'id': livre.id}) }}">edit</a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -38,6 +40,7 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <center><a class="uk-button uk-button-secondary" href="{{ path('livre_new') }}">Create new</a></center>
+    {% if app.user and app.user.roles[0] == 'ROLE_ADMIN' %}
+        <center><a class="uk-button uk-button-secondary" href="{{ path('livre_new') }}">Create new</a></center>
+    {% endif %}
 {% endblock %}

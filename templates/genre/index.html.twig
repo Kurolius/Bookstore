@@ -20,7 +20,11 @@
                 <td>{{ genre.nom }}</td>
                 <td>
                     <a class="uk-button uk-button-default" href="{{ path('genre_show', {'id': genre.id}) }}">show</a>
+                {% if app.user %}    
+                    {% if app.user.roles[0] == 'ROLE_ADMIN' %}    
                     <a class="uk-button uk-button-primary" href="{{ path('genre_edit', {'id': genre.id}) }}">edit</a>
+                    {% endif %}
+                {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -30,6 +34,7 @@
         {% endfor %}
         </tbody>
     </table>
-
+    {% if app.user and app.user.roles[0] == 'ROLE_ADMIN' %}
     <center><a class="uk-button uk-button-secondary" href="{{ path('genre_new') }}">Create new</a></center>
+    {% endif %}
 {% endblock %}
