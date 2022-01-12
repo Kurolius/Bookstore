@@ -17,19 +17,40 @@
     </head>
     <body>
         <nav class="uk-navbar-container uk-margin" uk-navbar>
+
+            <div class="uk-navbar-left">
+                {% if app.user %}
+                    {% if  app.user.roles[0] == 'ROLE_ADMIN' %}
+                        <span class="uk-label"> Welcome Admin <span>
+                    {% else %}
+                         <span class="uk-label"> Welcome User <span>
+                    {% endif %}
+                {% else %}
+                    <span class="uk-label"> Welcome Guest <span>
+                {% endif %}
+            </div>
+
             <div class="uk-navbar-center">
 
                 <div class="uk-navbar-center-left"><div>
                     <ul class="uk-navbar-nav">
+                        <li><a href="/">Home</a></li>
                         <li><a href="/livre">Livre</a></li>
-                        <li><a href="/genre">Genre</a></li>
+                       
                         
                     </ul>
                 </div></div>
-                <a class="uk-navbar-item uk-logo" href="#">Logo</a>
+                 <a href={{path('home')}}><img src={{asset('assets/img/bookstore.png')}} width="50px"/></a>
                 <div class="uk-navbar-center-right"><div>
                     <ul class="uk-navbar-nav">
+                         <li><a href="/genre">Genre</a></li>
                         <li><a href="/auteur">Auteur</a></li>
+                    </ul>
+                </div></div>
+            </div>
+            <div class="uk-navbar-right">
+                <div>
+                    <ul class="uk-navbar-nav">
                         {% if app.user %}
                             <li><a href="/logout">Log out</a></li>
                         {% else %}
@@ -37,8 +58,8 @@
                             <li><a href="/register">Sign up</a></li>
                         {% endif %}
                     </ul>
-                </div></div>
-
+                </div>  
+            
             </div>
         </nav>
         {% block body %}{% endblock %}

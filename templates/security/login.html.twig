@@ -15,10 +15,22 @@
     {% endif %}
 
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    <table style="margin-left: 41%;">
+    <tr>
+    <td><label for="inputEmail">Email</label> </td>
+    <td> 
+       <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+    </td>
+    </tr>
+
+    <tr>
+    <td>  <label for="inputPassword">Password</label></td>
+    <td> 
+        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+    </td>
+    </tr>
+
+    </table>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
@@ -34,9 +46,8 @@
             </label>
         </div>
     #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
+   <center> <button class="uk-button uk-button-primary" type="submit">
         Sign in
-    </button>
+    </button></center>
 </form>
 {% endblock %}

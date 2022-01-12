@@ -45,7 +45,7 @@ class Livre
     private $note;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Auteur::class, mappedBy="Livre")
+     * @ORM\ManyToMany(targetEntity=Auteur::class, inversedBy="Livre")
      */
     private $Auteurs;
 

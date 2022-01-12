@@ -54,24 +54,19 @@ class LivreType extends AbstractType
 
                 ]
             ])
-            ->add('Auteurs',ChoiceType::class,[
+            ->add('Auteurs',NULL,[
                 'label'=>false,
-                'choices'=>[
-                    
-                ],
                 'attr'=>[
                     'class'=>'uk-input',
-                ]
+                    'multiple'=>true
+            ]
             ])
-            ->add('genres',ChoiceType::class,[
+            ->add('genres',NULL,[
                 'label'=>false,
-                'choices'=>[
-                    
-                ],
                 'attr'=>[
                     'class'=>'uk-input',
-                ]
-            ])
+                    'multiple'=>true
+            ]])
         ;
     }
 

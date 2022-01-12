@@ -40,7 +40,7 @@ class Auteur
     private $nationalite;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Livre::class, inversedBy="Auteurs")
+     * @ORM\ManyToMany(targetEntity=Livre::class, mappedBy="Auteurs")
      */
     private $Livre;
 

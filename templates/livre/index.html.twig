@@ -11,8 +11,8 @@
                 <th>Id</th>
                 <th>Isbn</th>
                 <th>Titre</th>
-                <th>Nombre_pages</th>
-                <th>Date_de_parution</th>
+                <th>Nombre pages</th>
+                <th>Date de parution</th>
                 <th>Note</th>
                 <th>actions</th>
             </tr>
@@ -28,7 +28,7 @@
                 <td>{{ livre.note }}</td>
                 <td>
                     <a class="uk-button uk-button-default" href="{{ path('livre_show', {'id': livre.id}) }}">show</a>
-                    {% if app.user and app.user.roles[0] == 'ROLE_USER' %}
+                    {% if app.user and app.user.roles[0] == 'ROLE_ADMIN' %}
                         <a class="uk-button uk-button-primary" href="{{ path('livre_edit', {'id': livre.id}) }}">edit</a>
                     {% endif %}
                 </td>

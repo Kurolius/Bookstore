@@ -6,12 +6,29 @@
     <h1>Register</h1>
 
     {{ form_start(registrationForm) }}
+    <table style="margin-left: 39%;">
+    <tr>
+    <td> <label>Email</label> </td>
+    <td> 
         {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+    </td>
+    </tr>
 
-        <button type="submit" class="btn">Register</button>
+    <tr>
+    <td> <label>Password</label> </td>
+    <td> 
+        {{ form_row(registrationForm.plainPassword) }}
+    </td>
+    </tr>
+
+    <tr>
+    <td> <label>Agree terms</label> </td>
+    <td> 
+       {{ form_row(registrationForm.agreeTerms) }}
+    </td>
+    </tr>
+    </table>
+
+    <center> <button type="submit" class="uk-button uk-button-primary">Register</button> </center>
     {{ form_end(registrationForm) }}
 {% endblock %}
