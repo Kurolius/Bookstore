@@ -1,8 +1,8 @@
 {{ form_start(form) }}
-    <label>Nom</label>
+   <center> <label>Nom</label>
     <div class='uk-width-1-2 uk-margin-bottom'>
     {{ form_row(form.nom) }}
     </div>
     <a class="uk-button uk-button-secondary" href="{{ path('genre_index') }}">back to list</a>
-    <button class="uk-button uk-button-primary">{{ button_label|default('Save') }}</button> 
+    <button class="uk-button uk-button-primary">{{ button_label|default('Save') }}</button> </center>
 {{ form_end(form) }}
